@@ -88,6 +88,7 @@ ids= tempProduct_ids;
     // TODO: implement initState
     super.initState();
     fetchData();
+    Constants.menu;
   }
   @override
   Widget build(BuildContext context) {
@@ -139,13 +140,14 @@ ids= tempProduct_ids;
               itemCount: Constants.menu.length,
               itemBuilder: (context, index) => MenuItem(
                     text: Constants.menu[index],
+                id: Constants.CatIds[index]
                   )),
         ),
         SizedBox(
           height: 16.h,
         ),
-        _title(context, 'All Dishes',
-             MenuDetails(title: 'Popular dishes')),
+        // _title(context, 'All Dishes',
+        //      MenuDetails(title: 'Popular dishes')),
         SizedBox(
           height: 16.h,
         ),
@@ -186,30 +188,5 @@ ids= tempProduct_ids;
     );
   }
 
-  Widget _search() {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      width: MediaQuery.of(context).size.width * 0.6,
-      child: Field(
-        controller: searchController,
-        hint: 'Search dishes ....',
-        prefix: const Icon(Icons.search),
-        suffix: isSearch
-            ? InkWell(
-                onTap: () {
-                  searchController.clear();
-                  setState(() {
-                    isSearch = false;
-                  });
-                },
-                child: const Icon(Icons.close))
-            : null,
-        onFieldSubmitted: (v) {
-          setState(() {
-            isSearch = true;
-          });
-        },
-      ),
-    );
-  }
+
 }

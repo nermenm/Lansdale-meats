@@ -9,8 +9,9 @@ import '../../../utils/theme/app_theme.dart';
 import '../menu_details.dart';
 
 class MenuItem extends StatefulWidget {
-   const MenuItem({super.key, required this.text});
+   const MenuItem({super.key, required this.text, required this.id});
   final String text;
+  final int id;
 
   @override
   State<MenuItem> createState() => _MenuItemState();
@@ -29,7 +30,7 @@ class _MenuItemState extends State<MenuItem> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigate.navigateTo(context, MenuDetails(title: widget.text));
+        Navigate.navigateTo(context, MenuDetails(title: widget.text, id:widget.id));
       },
       child: Container(
           // height: 20.h,

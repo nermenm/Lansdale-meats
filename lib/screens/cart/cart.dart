@@ -70,7 +70,7 @@ class _CartState extends State<Cart> {
                                       currentItem.name ?? 'Default Name',
                                       style: TextStyle(
                                           color: Colors.black,
-                                          fontSize: 14.sp,
+                                          fontSize: 13.sp,
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Text(
