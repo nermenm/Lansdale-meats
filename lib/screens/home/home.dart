@@ -89,6 +89,7 @@ ids= tempProduct_ids;
     super.initState();
     fetchData();
     Constants.menu;
+
   }
   @override
   Widget build(BuildContext context) {
@@ -129,7 +130,7 @@ ids= tempProduct_ids;
           height: 16.h,
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.2,
+          height: MediaQuery.of(context).size.height * 0.1,
           child: GridView.builder(
               scrollDirection: Axis.horizontal,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

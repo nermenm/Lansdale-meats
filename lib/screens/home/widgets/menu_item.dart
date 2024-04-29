@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../utils/helpers/navigate.dart';
 import '../../../utils/theme/app_theme.dart';
+import '../../../utils/widgets/button.dart';
 import '../menu_details.dart';
 
 class MenuItem extends StatefulWidget {
@@ -28,48 +29,20 @@ class _MenuItemState extends State<MenuItem> {
   }
 
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigate.navigateTo(context, MenuDetails(title: widget.text, id:widget.id));
+    return Button(
+
+      onPressed: () {         Navigate.navigateTo(context, MenuDetails(title: widget.text, id:widget.id));
       },
-      child: Container(
-          // height: 20.h,
-          // width: 100.w,
-          padding: const EdgeInsets.all(14),
-          decoration: BoxDecoration(
-              color: AppTheme.secondaryColor.withOpacity(0.15),
-              // border: Border.all(color: AppTheme.secondaryColor),
-              // boxShadow: const [
-              //   BoxShadow(
-              //     color: Colors.grey,
-              //     blurRadius: 1,
-              //     offset: Offset(0.4, 0.8), // Shadow position
-              //   ),
-              // ],
-              borderRadius: BorderRadius.circular(8.r)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                'assets/icons/food.svg',
-                colorFilter: const ColorFilter.mode(
-                    AppTheme.secondaryColor, BlendMode.srcIn),
-              ),
-              SizedBox(
-                height: 8.h,
-              ),
-              Text(
-                widget.text,
-                softWrap: true,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 12.sp,
-                ),
-              )
-            ],
-          )),
+      child:    Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+           Text(
+              widget.text,
+              style: TextStyle(color: Colors.white),
+            ),
+          ],
+        ),
+
     );
   }
 }
