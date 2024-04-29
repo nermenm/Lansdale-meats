@@ -88,65 +88,63 @@ class _DishCardState extends State<DishCard> {
             ),
           ),
           SizedBox(
-            height: 8.h,
+            height: 10,
           ),
-          Expanded(
-              flex: 1,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      widget.name ?? 'Default Name',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    Text(
-                      widget.price ?? 'Default price',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    SizedBox(
-                      height: 8.h,
-                    ),
-                    Button(
-                      onPressed: () {
-                        // Create a new CartItem
-                        CartItem newItem = CartItem(
-                          price: widget.price,
-                          imageSrc: widget.imageSrc,
-                          name: widget.name, id: widget.id,
-                        );
-                        // Use Provider to add the item to the cart
-                        Provider.of<CartProvider>(context, listen: false).addToCart(newItem);
-
-                        // Print the length of the cartItems after adding the item
-                        // print(Provider.of<CartProvider>(context, listen: false).cartItems.length);
-
-                        // Navigate to the Cart screen (optional)
-                        Navigate.navigateTo(context, Cart());
-    },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            'Add to cart',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  widget.name ?? 'Default Name',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.bold),
                 ),
-              ))
+                SizedBox(
+                  height: 2.h,
+                ),
+                Text(
+                  widget.price ?? 'Default price',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 10.sp,
+                      fontWeight: FontWeight.w500),
+                ),
+                SizedBox(
+                  height: 8.h,
+                ),
+                Button(
+                  onPressed: () {
+                    // Create a new CartItem
+                    CartItem newItem = CartItem(
+                      price: widget.price,
+                      imageSrc: widget.imageSrc,
+                      name: widget.name, id: widget.id,
+                    );
+                    // Use Provider to add the item to the cart
+                    Provider.of<CartProvider>(context, listen: false).addToCart(newItem);
+
+                    // Print the length of the cartItems after adding the item
+                    // print(Provider.of<CartProvider>(context, listen: false).cartItems.length);
+
+                    // Navigate to the Cart screen (optional)
+                    Navigate.navigateTo(context, Cart());
+              },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Add to cart',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
